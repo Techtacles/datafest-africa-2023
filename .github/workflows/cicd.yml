@@ -42,7 +42,7 @@ jobs:
 
       - name: Export profiles dir
         run: |
-          echo "$PROFILES" > profiles/profiles.yml
+          echo "$PROFILES" > datafest_dbt/profiles/profiles.yml
           ls profiles
         env:
           PROFILES: ${{ secrets.PROFILES }}      
