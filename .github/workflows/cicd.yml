@@ -45,14 +45,14 @@ jobs:
         shell: bash
           
 
-      - name: Dbt test
-        working-directory: ./datafest_dbt
-        run: |
-          cd ${{ github.workspace }}/datafest_dbt
-          dbt test --profiles-dir profiles
+      - name: dbt-action
+        uses: mwhitaker/dbt-action@master
+        with:
+          dbt_command: "dbt test --profiles-dir profiles"
+          dbt_project_folder: "datafest_dbt"
 
-      - name: Dbt Run
-        working-directory: ./datafest_dbt
-        run: |
-          cd ${{ github.workspace }}/datafest_dbt
-          dbt run --profiles-dir profiles
+      - name: dbt-action
+        uses: mwhitaker/dbt-action@master
+        with:
+          dbt_command: "dbt run --profiles-dir profiles"
+          dbt_project_folder: "datafest_dbt"
