@@ -41,7 +41,7 @@ jobs:
           python-version: ${{ env.PYTHON_VERSION }}
 
       - name: Setup virtual env and install deps
-        run: bash helper.sh
+        run: pip install -r requirements.txt
         shell: bash
           
 
