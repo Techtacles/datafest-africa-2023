@@ -42,7 +42,6 @@ jobs:
 
       - name: Setup virtual env and install deps
         run: pip install -r requirements.txt
-        shell: bash
           
 
       - name: Dbt test
