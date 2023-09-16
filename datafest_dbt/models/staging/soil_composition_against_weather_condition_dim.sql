@@ -1,5 +1,5 @@
 with soil_composition_cte as (
-    select fact.date_field , weather.weather_condition, weather.wind_speed, weather.precipitation,
+    select distinct fact.date_field , weather.weather_condition, weather.wind_speed, weather.precipitation,
     soil.soil_comp, soil.soil_moisture
     from 
     {{ ref('fact_table') }} fact 
