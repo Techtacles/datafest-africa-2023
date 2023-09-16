@@ -47,10 +47,10 @@ jobs:
 
       - name: Dbt test
         run: |
-          cd {{ github.workspace }}/datafest_dbt
+          cd ${{ github.workspace }}/datafest_dbt
           dbt test --profiles-dir profiles
 
       - name: Dbt Run
         run: |
-          cd {{ github.workspace }}/datafest_dbt
+          cd ${{ github.workspace }}/datafest_dbt
           dbt run --profiles-dir profiles
