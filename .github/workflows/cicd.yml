@@ -49,8 +49,6 @@ jobs:
         working-directory: ./datafest_dbt
         run: |
           cd ${{ github.workspace }}/datafest_dbt
-          ls
-          pip install dbt
           dbt test --profiles-dir profiles
 
       - name: Dbt Run
