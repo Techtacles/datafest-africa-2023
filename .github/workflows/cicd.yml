@@ -49,8 +49,22 @@ jobs:
         run: |
           cd datafest_dbt
           dbt test --profiles-dir profiles
+        env:
+          ACCOUNT_ID: ${{ secrets.ACCOUNT_ID }}
+          USER: ${{ secrets.USER }}
+          DATABASE: ${{ secrets.DATABASE }}
+          STAGING_SCHEMA: ${{ secrets.STAGING_SCHEMA }}
+          DWH: ${{ secrets.DWH }}
+          PASSWORD: ${{ secrets.PASSWORD }}
 
       - name: Dbt Run
         run: |
           cd ${{ github.workspace }}/datafest_dbt
           dbt run --profiles-dir profiles
+        env:
+          ACCOUNT_ID: ${{ secrets.ACCOUNT_ID }}
+          USER: ${{ secrets.USER }}
+          DATABASE: ${{ secrets.DATABASE }}
+          STAGING_SCHEMA: ${{ secrets.STAGING_SCHEMA }}
+          DWH: ${{ secrets.DWH }}
+          PASSWORD: ${{ secrets.PASSWORD }}
