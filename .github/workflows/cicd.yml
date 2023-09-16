@@ -38,7 +38,7 @@ jobs:
       - name: Set up python {{ env.PYTHON_VERSION }}
         uses: actions/setup-python@v4
         with:
-          python-version: {{ env.PYTHON_VERSION }}
+          python-version: ${{ env.PYTHON_VERSION }}
 
       - name: Setup virtual env and install deps
         run: bash helper.sh
