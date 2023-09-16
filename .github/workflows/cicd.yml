@@ -42,8 +42,9 @@ jobs:
 
       - name: Export profiles dir
         run: |
-          echo "$PROFILES" > ${{ github.workspace}}/datafest_dbt/profiles/profiles.yml
-          ls ${{ github.workspace}}/datafest_dbt/profiles
+          cd datafest_dbt
+          mkdir profiles
+          echo "$PROFILES" > profiles/profiles.yml
         env:
           PROFILES: ${{ secrets.PROFILES }}      
 
