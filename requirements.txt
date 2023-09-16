@@ -1,3 +1,4 @@
+dbt
 dbt-snowflake
 dbt-core
 markupsafe==2.0.1
