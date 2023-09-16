@@ -1,6 +1,5 @@
 with soil_composition_cte as (
-    select distinct fact.date_field , weather.weather_condition, weather.wind_speed, weather.precipitation,
-    soil.soil_comp, soil.soil_moisture
+    select  weather.weather_condition, avg(soil.soil_moisture) as avg_soil_moisture 
     from 
     {{ ref('fact_table') }} fact 
     join 
@@ -8,6 +7,7 @@ with soil_composition_cte as (
     on fact.date_field=weather.date_field
     join {{ref('soil_data_stg')}} soil 
     on weather.date_field=soil.date_field
+    group by weather.weather_condition
 
 )
 select * from soil_composition_cte
