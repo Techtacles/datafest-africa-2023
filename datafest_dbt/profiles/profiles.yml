@@ -1,6 +1,6 @@
 datafest_profile:
   outputs:
-    raw:
+    staging:
       type: snowflake
       account: "eu68469.west-europe.azure"
       user: "INTERSTELLAR"
@@ -11,4 +11,4 @@ datafest_profile:
       role: "INTERSTELLAR"
 
 
-  target: raw
+  target: staging
