@@ -41,7 +41,9 @@ jobs:
           python-version: ${{ env.PYTHON_VERSION }}
 
       - name: Setup virtual env and install deps
-        run: pip install -r requirements.txt
+        run: |
+        pip install --upgrade pip
+        pip install -r requirements.txt
           
 
       - name: Dbt test
