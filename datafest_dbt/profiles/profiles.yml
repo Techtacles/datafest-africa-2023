@@ -1,14 +1,14 @@
 datafest_profile:
   outputs:
-    staging:
+    raw:
       type: snowflake
-      account: "{{ env_var(ACCOUNT_ID) }}"
-      user: "{{ env_var(USER) }}"
-      database: "{{ env_var(DATABASE) }}"
-      schema: "{{ env_var(STAGING_SCHEMA) }}"
-      warehouse: "{{ env_var(DWH) }}"
-      password: "{{ env_var(PASSWORD) }}"
-      role: "{{ env_var(USER) }}"
+      account: "eu68469.west-europe.azure"
+      user: "INTERSTELLAR"
+      database: "DFA23RAWDATA"
+      schema: "INTERSTELLAR"
+      warehouse: "DFA23"
+      password: "N9kXW4oRi"
+      role: "INTERSTELLAR"
 
 
-  target: staging
+  target: raw
