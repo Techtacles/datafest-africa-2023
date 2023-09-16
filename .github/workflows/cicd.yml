@@ -40,20 +40,17 @@ jobs:
         with:
           python-version: ${{ env.PYTHON_VERSION }}
 
-      - name: Setup virtual env and install deps
+      - name: Install dependencies
         run: |
-          python -m venv env
-          source env/bin/activate
+          python -m pip install --upgrade pip
           pip install -r requirements.txt          
 
       - name: Dbt test
-        working-directory: ./datafest_dbt
         run: |
-          cd ${{ github.workspace }}/datafest_dbt
+          cd datafest_dbt
           dbt test --profiles-dir profiles
 
       - name: Dbt Run
-        working-directory: ./datafest_dbt
         run: |
           cd ${{ github.workspace }}/datafest_dbt
           dbt run --profiles-dir profiles
