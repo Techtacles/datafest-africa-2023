@@ -1,0 +1,56 @@
+name: "DBT Deployment CICD"
+
+on:
+  push:
+    branches:
+      - master
+
+permissions:
+  contents: read
+  id-token: write
+
+env:
+  PYTHON_VERSION: 3.9
+  ACCOUNT_ID: ${{ secrets.ACCOUNT_ID }}
+  USER: ${{ secrets.USER }}
+  DATABASE: ${{ secrets.DATABASE }}
+  STAGING_SCHEMA: ${{ secrets.STAGING_SCHEMA }}
+  DWH: ${{ secrets.DWH }}
+  PASSWORD: ${{ secrets.PASSWORD }}
+  
+
+jobs:
+  dbt_deployment:
+    name: "Deploy dbt"
+    runs-on: ubuntu-latest
+    environment: production
+
+    # Use the Bash shell regardless whether the GitHub Actions runner is ubuntu-latest, macos-latest, or windows-latest.
+    defaults:
+      run:
+        shell: bash
+
+    steps:
+      # Checkout the repository to the GitHub Actions runner
+      - name: Checkout
+        uses: actions/checkout@v2
+      
+      - name: Set up python {{ env.PYTHON_VERSION }}
+        uses: actions/setup-python@v4
+        with:
+          python-version: {{ env.PYTHON_VERSION }}
+
+      - name: Setup virtual env and install deps
+        run: bash helper.sh
+        shell: bash
+          
+
+      - name: Dbt test
+        run: |
+          cd {{ github.workspace }}/datafest_dbt
+          dbt test --profiles-dir profiles
+
+      - name: Dbt Run
+        run: |
+          cd {{ github.workspace }}/datafest_dbt
+          dbt run --profiles-dir profiles

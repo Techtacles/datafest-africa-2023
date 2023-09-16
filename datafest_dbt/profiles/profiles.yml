@@ -1,0 +1,14 @@
+datafest_profile:
+  outputs:
+    staging:
+      type: snowflake
+      account: "{{ env_var(ACCOUNT_ID)}"
+      user: "{{ env_var(USER)}"
+      database: "{{ env_var(DATABASE)}"
+      schema: "{{ env_var(STAGING_SCHEMA)}"
+      warehouse: "{{ env_var(DWH)}"
+      password: "{{ env_var(PASSWORD)}"
+      role: "{{ env_var(USER)}"
+
+
+  target: staging

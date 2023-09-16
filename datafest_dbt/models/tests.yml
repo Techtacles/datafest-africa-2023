@@ -1,0 +1,16 @@
+version: 2
+models:
+ - name: sensor_data_stg
+   columns:
+     - name: sensor_id
+       tests:
+         - not_null
+ - name: fact_table
+   columns:
+     - name: sensor_id
+       constraints:
+         - type: primary_key
+           columns: [sensor_id]
+       tests:
+         - not_null
+        

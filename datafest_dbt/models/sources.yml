@@ -1,0 +1,12 @@
+version: 2
+sources:
+ - name: raw_source
+   schema: RAWDATA
+   tables:
+     - name: CROPDATARAW  
+     - name: LOCATIONDATARAW
+     - name: PESTDATARAW
+     - name: SENSORDATARAW
+     - name: SOILDATARAW
+     - name: WEATHERDATARAW
+
