@@ -21,4 +21,4 @@ The processed data can be seen in the Snowflake data warehouse. However, the ima
 <br>
 To optimize the query performance, I ensured to use clean and consise SQL code. I also added indexing to the code . I avoided full outer joins and selecting all the fields whilst using the select statement. I also ensured I minimized large write operations to the data warehouse. I also used a low thread whilst running the dbt to reduce the load on the data warehouse and to save costs. Although, the implication of this is that queries might take a longer time to run.<br><br>
 I am grateful for the opportunity in utilizing my skills in solving problems and I'd be glad to answer any questions you might have. Thank you.
-
+<br> To run this project, all you need to do is to clone the project, add a profiles directory to your secrets and then push to the master branch.
